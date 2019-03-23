@@ -66,7 +66,7 @@ app.post('/sendemail', function (req, res) {
 });
 
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT | 3000;
 app.listen(port, function(){
     console.log('Server is started on port ' + port);
 });
