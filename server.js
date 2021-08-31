@@ -43,7 +43,7 @@ app.post('/sendemail', function (req, res) {
         service: 'gmail',
         auth: {
           user: 'rehan.rahi233.rr@gmail.com',
-          pass: 'ilike233.rr'
+          pass: ''
         }
       });
       
@@ -57,12 +57,14 @@ app.post('/sendemail', function (req, res) {
       transporter.sendMail(mailOptions, function(error, info){
         if (error) {
           console.log(error);
+          res.status(400).json({ success: false });
         } else {
           console.log('Email sent: ' + info.response);
+          res.status(200).json({ success: true });
         }
       });
 
-    res.status(200).json({ success: true });
+    
 });
 
 
